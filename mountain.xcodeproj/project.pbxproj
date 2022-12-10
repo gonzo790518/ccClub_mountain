@@ -7,8 +7,16 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		2382C8E9293B8A3B00ABF33D /* RecommandView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2382C8E8293B8A3B00ABF33D /* RecommandView.swift */; };
+		2382C8EB293B8A4700ABF33D /* RandomView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2382C8EA293B8A4700ABF33D /* RandomView.swift */; };
+		2382C8ED293B946500ABF33D /* Extension.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2382C8EC293B946500ABF33D /* Extension.swift */; };
+		2382C8EF293CCC9200ABF33D /* PersonalInfoView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2382C8EE293CCC9200ABF33D /* PersonalInfoView.swift */; };
+		2382C8F8293E21F200ABF33D /* PersonalInfoViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2382C8F7293E21F200ABF33D /* PersonalInfoViewModel.swift */; };
+		2382C8FA293F662200ABF33D /* DetailView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2382C8F9293F662100ABF33D /* DetailView.swift */; };
+		2382C8FC293F86CF00ABF33D /* DetailViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2382C8FB293F86CF00ABF33D /* DetailViewModel.swift */; };
+		2382C9052941781F00ABF33D /* Launch Screen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 2382C9042941781F00ABF33D /* Launch Screen.storyboard */; };
 		23A69FD72934FD1E00AFA1E5 /* mountainApp.swift in Sources */ = {isa = PBXBuildFile; fileRef = 23A69FD62934FD1E00AFA1E5 /* mountainApp.swift */; };
-		23A69FD92934FD1E00AFA1E5 /* ContentView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 23A69FD82934FD1E00AFA1E5 /* ContentView.swift */; };
+		23A69FD92934FD1E00AFA1E5 /* MainView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 23A69FD82934FD1E00AFA1E5 /* MainView.swift */; };
 		23A69FDB2934FD2000AFA1E5 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 23A69FDA2934FD2000AFA1E5 /* Assets.xcassets */; };
 		23A69FDE2934FD2000AFA1E5 /* Preview Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 23A69FDD2934FD2000AFA1E5 /* Preview Assets.xcassets */; };
 		23A69FE62934FDE100AFA1E5 /* Alamofire in Frameworks */ = {isa = PBXBuildFile; productRef = 23A69FE52934FDE100AFA1E5 /* Alamofire */; };
@@ -18,9 +26,17 @@
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
+		2382C8E8293B8A3B00ABF33D /* RecommandView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RecommandView.swift; sourceTree = "<group>"; };
+		2382C8EA293B8A4700ABF33D /* RandomView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RandomView.swift; sourceTree = "<group>"; };
+		2382C8EC293B946500ABF33D /* Extension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Extension.swift; sourceTree = "<group>"; };
+		2382C8EE293CCC9200ABF33D /* PersonalInfoView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PersonalInfoView.swift; sourceTree = "<group>"; };
+		2382C8F7293E21F200ABF33D /* PersonalInfoViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PersonalInfoViewModel.swift; sourceTree = "<group>"; };
+		2382C8F9293F662100ABF33D /* DetailView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DetailView.swift; sourceTree = "<group>"; };
+		2382C8FB293F86CF00ABF33D /* DetailViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DetailViewModel.swift; sourceTree = "<group>"; };
+		2382C9042941781F00ABF33D /* Launch Screen.storyboard */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; path = "Launch Screen.storyboard"; sourceTree = "<group>"; };
 		23A69FD32934FD1E00AFA1E5 /* mountain.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = mountain.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		23A69FD62934FD1E00AFA1E5 /* mountainApp.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = mountainApp.swift; sourceTree = "<group>"; };
-		23A69FD82934FD1E00AFA1E5 /* ContentView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ContentView.swift; sourceTree = "<group>"; };
+		23A69FD82934FD1E00AFA1E5 /* MainView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MainView.swift; sourceTree = "<group>"; };
 		23A69FDA2934FD2000AFA1E5 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		23A69FDD2934FD2000AFA1E5 /* Preview Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = "Preview Assets.xcassets"; sourceTree = "<group>"; };
 		23A69FE72934FE1100AFA1E5 /* API.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = API.swift; sourceTree = "<group>"; };
@@ -40,6 +56,51 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		2382C8F0293CCC9700ABF33D /* 找步道 */ = {
+			isa = PBXGroup;
+			children = (
+				2382C8EE293CCC9200ABF33D /* PersonalInfoView.swift */,
+				2382C8F7293E21F200ABF33D /* PersonalInfoViewModel.swift */,
+				2382C8E8293B8A3B00ABF33D /* RecommandView.swift */,
+				2382C8F9293F662100ABF33D /* DetailView.swift */,
+				2382C8FB293F86CF00ABF33D /* DetailViewModel.swift */,
+			);
+			path = "找步道";
+			sourceTree = "<group>";
+		};
+		2382C8F1293CCCAF00ABF33D /* 搖一搖 */ = {
+			isa = PBXGroup;
+			children = (
+				2382C8EA293B8A4700ABF33D /* RandomView.swift */,
+			);
+			path = "搖一搖";
+			sourceTree = "<group>";
+		};
+		2382C8F2293CCCCB00ABF33D /* 首頁 */ = {
+			isa = PBXGroup;
+			children = (
+				23A69FD82934FD1E00AFA1E5 /* MainView.swift */,
+			);
+			path = "首頁";
+			sourceTree = "<group>";
+		};
+		2382C8F3293CCCD500ABF33D /* API */ = {
+			isa = PBXGroup;
+			children = (
+				23A69FF72938DE4000AFA1E5 /* Model */,
+				23A69FE72934FE1100AFA1E5 /* API.swift */,
+			);
+			path = API;
+			sourceTree = "<group>";
+		};
+		2382C8F4293CCCDC00ABF33D /* Other */ = {
+			isa = PBXGroup;
+			children = (
+				2382C8EC293B946500ABF33D /* Extension.swift */,
+			);
+			path = Other;
+			sourceTree = "<group>";
+		};
 		23A69FCA2934FD1E00AFA1E5 = {
 			isa = PBXGroup;
 			children = (
@@ -60,11 +121,14 @@
 			isa = PBXGroup;
 			children = (
 				23A69FD62934FD1E00AFA1E5 /* mountainApp.swift */,
-				23A69FD82934FD1E00AFA1E5 /* ContentView.swift */,
-				23A69FE72934FE1100AFA1E5 /* API.swift */,
-				23A69FF72938DE4000AFA1E5 /* Model */,
+				2382C8F2293CCCCB00ABF33D /* 首頁 */,
+				2382C8F1293CCCAF00ABF33D /* 搖一搖 */,
+				2382C8F0293CCC9700ABF33D /* 找步道 */,
+				2382C8F3293CCCD500ABF33D /* API */,
+				2382C8F4293CCCDC00ABF33D /* Other */,
 				23A69FDA2934FD2000AFA1E5 /* Assets.xcassets */,
 				23A69FDC2934FD2000AFA1E5 /* Preview Content */,
+				2382C9042941781F00ABF33D /* Launch Screen.storyboard */,
 			);
 			path = mountain;
 			sourceTree = "<group>";
@@ -152,6 +216,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				23A69FDE2934FD2000AFA1E5 /* Preview Assets.xcassets in Resources */,
+				2382C9052941781F00ABF33D /* Launch Screen.storyboard in Resources */,
 				23A69FDB2934FD2000AFA1E5 /* Assets.xcassets in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -164,8 +229,15 @@
 			buildActionMask = 2147483647;
 			files = (
 				23A69FEA2935007700AFA1E5 /* Mountain.swift in Sources */,
-				23A69FD92934FD1E00AFA1E5 /* ContentView.swift in Sources */,
+				23A69FD92934FD1E00AFA1E5 /* MainView.swift in Sources */,
+				2382C8ED293B946500ABF33D /* Extension.swift in Sources */,
+				2382C8FA293F662200ABF33D /* DetailView.swift in Sources */,
+				2382C8E9293B8A3B00ABF33D /* RecommandView.swift in Sources */,
+				2382C8EF293CCC9200ABF33D /* PersonalInfoView.swift in Sources */,
+				2382C8F8293E21F200ABF33D /* PersonalInfoViewModel.swift in Sources */,
+				2382C8EB293B8A4700ABF33D /* RandomView.swift in Sources */,
 				23A69FE82934FE1100AFA1E5 /* API.swift in Sources */,
+				2382C8FC293F86CF00ABF33D /* DetailViewModel.swift in Sources */,
 				23A69FD72934FD1E00AFA1E5 /* mountainApp.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -298,9 +370,12 @@
 				DEVELOPMENT_TEAM = S9PBHPN687;
 				ENABLE_PREVIEWS = YES;
 				GENERATE_INFOPLIST_FILE = YES;
+				INFOPLIST_FILE = "";
+				INFOPLIST_KEY_CFBundleDisplayName = "你能走什麼？";
 				INFOPLIST_KEY_UIApplicationSceneManifest_Generation = YES;
 				INFOPLIST_KEY_UIApplicationSupportsIndirectInputEvents = YES;
 				INFOPLIST_KEY_UILaunchScreen_Generation = YES;
+				INFOPLIST_KEY_UILaunchStoryboardName = "Launch Screen.storyboard";
 				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPad = "UIInterfaceOrientationPortrait UIInterfaceOrientationPortraitUpsideDown UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";
 				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPhone = "UIInterfaceOrientationPortrait UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";
 				LD_RUNPATH_SEARCH_PATHS = (
@@ -327,9 +402,12 @@
 				DEVELOPMENT_TEAM = S9PBHPN687;
 				ENABLE_PREVIEWS = YES;
 				GENERATE_INFOPLIST_FILE = YES;
+				INFOPLIST_FILE = "";
+				INFOPLIST_KEY_CFBundleDisplayName = "你能走什麼？";
 				INFOPLIST_KEY_UIApplicationSceneManifest_Generation = YES;
 				INFOPLIST_KEY_UIApplicationSupportsIndirectInputEvents = YES;
 				INFOPLIST_KEY_UILaunchScreen_Generation = YES;
+				INFOPLIST_KEY_UILaunchStoryboardName = "Launch Screen.storyboard";
 				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPad = "UIInterfaceOrientationPortrait UIInterfaceOrientationPortraitUpsideDown UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";
 				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPhone = "UIInterfaceOrientationPortrait UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";
 				LD_RUNPATH_SEARCH_PATHS = (

@@ -5,7 +5,7 @@
 //  Created by gonzo_li on 2022/11/28.
 //
 
-struct Mountain: Decodable {
+struct Mountain: Decodable, Hashable {
     var 步道名稱: String
     var 所在地區: String
     var 里程: String
@@ -16,6 +16,8 @@ struct Mountain: Decodable {
     var 申請入山: Bool
     var 路面狀況: String
     var 備註: String?
+    var 路線網址: String
+    var 圖片網址: String
     var factor: Float?
     var VO2_need: Float?
     var VO2max: Double?

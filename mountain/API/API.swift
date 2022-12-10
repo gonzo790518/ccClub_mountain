@@ -9,8 +9,6 @@ import SwiftUI
 import Alamofire
 import ProgressHUD
 
-
-
 enum Sex: String {
     case M
     case F
@@ -54,7 +52,7 @@ struct API {
             ProgressHUD.dismiss()
             switch response.result {
             case .success(let data):
-                //response.result.success
+                
                 print(data)
             case .failure(let error):
                 print("Error:", error)
@@ -62,7 +60,7 @@ struct API {
         }
     }
 
-    func postRecommandMountains(sex: Sex, age: Int, heartRate: Int, height: Int, weight: Int) {
+    func postRecommandMountains(sex: Sex, age: Int, heartRate: Int, height: Int, weight: Int, completion: @escaping ([Mountain]?) -> Void) {
         
         let url = domain + "/recommandations"
         let parameters = [
@@ -78,11 +76,12 @@ struct API {
             ProgressHUD.dismiss()
             switch response.result {
             case .success(let data):
-                //response.result.success
-                print(data)
+                
+                completion(data)
             case .failure(let error):
                 
-                print("Error:", error)
+                print("[POST] Recommandation Error: \(error)")
+                completion(nil)
             }
         }
     }
