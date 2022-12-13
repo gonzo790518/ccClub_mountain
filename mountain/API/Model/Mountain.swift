@@ -16,6 +16,7 @@ struct Mountain: Decodable, Hashable {
     var 申請入山: Bool
     var 路面狀況: String
     var 備註: String?
+    var 經緯度: [String]
     var 路線網址: String
     var 圖片網址: String
     var factor: Float?

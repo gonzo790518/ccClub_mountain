@@ -10,7 +10,8 @@ import ProgressHUD
 
 class PersonalInfoViewModel: ObservableObject {
     @Published var mountainList = [Mountain]()
-    @Published var isSuccess = false
+    @Published var isRandomSuccess = false
+    @Published var isRecommendSuccess = false
     
     func getRecommandMountains(sex: Sex, age: Int, heartRate: Int, height: Int, weight: Int) {
         
@@ -23,9 +24,9 @@ class PersonalInfoViewModel: ObservableObject {
         API.shared.postRecommandMountains(sex: sex, age: age, heartRate: heartRate, height: height, weight: weight, completion: { result in
             
             if result != nil {
-                print(result ?? [])
+                
                 self.mountainList = result ?? []
-                self.isSuccess = true
+                self.isRecommendSuccess = true
             }
         })
     }

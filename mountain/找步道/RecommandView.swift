@@ -10,8 +10,17 @@ import SwiftUI
 struct RecommandView: View {
     @Binding public var mountainList: [Mountain]
     @State private var isGoingDetail = false
-    @State private var selectedItem: Mountain = Mountain(步道名稱: "", 所在地區: "", 里程: "", 海拔高度: 0, 高度落差: "", 所需時間: "", 難易度: 0, 申請入山: false, 路面狀況: "", 路線網址: "", 圖片網址: "")
+    @State private var selectedItem: Mountain = Mountain(步道名稱: "", 所在地區: "", 里程: "", 海拔高度: 0, 高度落差: "", 所需時間: "", 難易度: 0, 申請入山: false, 路面狀況: "", 經緯度: [], 路線網址: "", 圖片網址: "")
+
     let screenWidth = UIScreen.main.bounds.width
+    let userLevel: [Int: String] = [
+        0: "太糟了⋯",
+        1: "不太好捏⋯",
+        2: "嗯～一般般",
+        3: "不錯唷～",
+        4: "很棒哦！",
+        5: "灰熊厲害！"
+    ]
     
     var body: some View {
         
@@ -23,9 +32,9 @@ struct RecommandView: View {
         VStack(alignment: .leading) {
             HStack {
                 
-                Text("您的體能等級為： ")
+                Text("您的體能等級： ")
                     .font(.subheadline)
-                Text("Excellent")
+                Text("\(userLevel[0]!)")
                     .foregroundColor(Color.red)
                     .font(.headline)
             }

@@ -18,43 +18,32 @@ struct MainView: View {
     var body: some View {
         NavigationStack {
             
-            Text("你能走什麼？")
-                .fontWeight(.bold)
-                .font(.custom("PingFangTC-Medium", fixedSize: 36))
-                .foregroundColor(.darkGray)
-                .padding()
-            
             Image("app-icon")
                 .resizable()
                 .aspectRatio(contentMode: .fit)
                 .padding(.horizontal, 50)
+                .padding(.top, 110)
             
-            Text("此專案的動機為，專案發起人的父母，本身就只是健行族，因為不是登山客，也非對登山有興趣，只是想出外有個步道可以走走，所以他們並不會特意去做功課、查資料，當然也不可能會去健身房測試自身體能程度，也因為這樣有幾次聽他們走完的心得是「體力透支」、「其實那個步道不適合我們走」等，偶然有一次遇到了危險的情況，健行筆記內難易度低中的仙山，因攻頂前幾公尺的攀繩處，因為踩空，差點摔下岩壁，好在手還抓著繩子，若連繩子都未抓好，就摔下去重傷，甚至可能失去性命，故有了此專案的發想。")
-                .font(.custom("PingFangTC-Regular", size: 16))
+            Text("出遊想找些步道走走\n卻又不知道你的體力是否能夠負荷嗎\n讓我們推薦\n你能走什麼")
+                .font(.custom("PingFangTC-Medium", size: 20))
+                .multilineTextAlignment(.center)
+                .foregroundColor(.darkGray)
                 .lineLimit(nil)
+                .lineSpacing(5)
                 .padding(.horizontal, 50)
             
             HStack {
                 NavigationLink {
-                    RandomView()
-                } label: {
-                    Text("搖一搖")
-                        .frame(width: screenWidth / 3.5, height: 25)
-                        .font(.headline)
-                        .padding(10)
-                        .background(Color.darkGray)
-                        .cornerRadius(15)
-                        .foregroundColor(.white)
-                }
-                NavigationLink {
+                    
                     PersonalInfoView()
                 } label: {
-                    Text("找步道")
-                        .frame(width: screenWidth / 3.5, height: 25)
+                    
+                    Text("開始使用")
+                        .frame(width: screenWidth * 0.6, height: 25)
                         .font(.headline)
                         .padding(10)
                         .background(Color.darkGray)
-                        .cornerRadius(15)
+                        .cornerRadius(.infinity)
                         .foregroundColor(.white)
                 }
             }

@@ -15,6 +15,7 @@
 		2382C8FA293F662200ABF33D /* DetailView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2382C8F9293F662100ABF33D /* DetailView.swift */; };
 		2382C8FC293F86CF00ABF33D /* DetailViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2382C8FB293F86CF00ABF33D /* DetailViewModel.swift */; };
 		2382C9052941781F00ABF33D /* Launch Screen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 2382C9042941781F00ABF33D /* Launch Screen.storyboard */; };
+		2382C9602945F18B00ABF33D /* appicon.png in Resources */ = {isa = PBXBuildFile; fileRef = 2382C95F2945F18B00ABF33D /* appicon.png */; };
 		23A69FD72934FD1E00AFA1E5 /* mountainApp.swift in Sources */ = {isa = PBXBuildFile; fileRef = 23A69FD62934FD1E00AFA1E5 /* mountainApp.swift */; };
 		23A69FD92934FD1E00AFA1E5 /* MainView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 23A69FD82934FD1E00AFA1E5 /* MainView.swift */; };
 		23A69FDB2934FD2000AFA1E5 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 23A69FDA2934FD2000AFA1E5 /* Assets.xcassets */; };
@@ -26,6 +27,7 @@
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
+		23671C0429478BA5006723AC /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist; path = Info.plist; sourceTree = "<group>"; };
 		2382C8E8293B8A3B00ABF33D /* RecommandView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RecommandView.swift; sourceTree = "<group>"; };
 		2382C8EA293B8A4700ABF33D /* RandomView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RandomView.swift; sourceTree = "<group>"; };
 		2382C8EC293B946500ABF33D /* Extension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Extension.swift; sourceTree = "<group>"; };
@@ -34,6 +36,7 @@
 		2382C8F9293F662100ABF33D /* DetailView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DetailView.swift; sourceTree = "<group>"; };
 		2382C8FB293F86CF00ABF33D /* DetailViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DetailViewModel.swift; sourceTree = "<group>"; };
 		2382C9042941781F00ABF33D /* Launch Screen.storyboard */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; path = "Launch Screen.storyboard"; sourceTree = "<group>"; };
+		2382C95F2945F18B00ABF33D /* appicon.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = appicon.png; sourceTree = "<group>"; };
 		23A69FD32934FD1E00AFA1E5 /* mountain.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = mountain.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		23A69FD62934FD1E00AFA1E5 /* mountainApp.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = mountainApp.swift; sourceTree = "<group>"; };
 		23A69FD82934FD1E00AFA1E5 /* MainView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MainView.swift; sourceTree = "<group>"; };
@@ -120,6 +123,7 @@
 		23A69FD52934FD1E00AFA1E5 /* mountain */ = {
 			isa = PBXGroup;
 			children = (
+				23671C0429478BA5006723AC /* Info.plist */,
 				23A69FD62934FD1E00AFA1E5 /* mountainApp.swift */,
 				2382C8F2293CCCCB00ABF33D /* 首頁 */,
 				2382C8F1293CCCAF00ABF33D /* 搖一搖 */,
@@ -127,6 +131,7 @@
 				2382C8F3293CCCD500ABF33D /* API */,
 				2382C8F4293CCCDC00ABF33D /* Other */,
 				23A69FDA2934FD2000AFA1E5 /* Assets.xcassets */,
+				2382C95F2945F18B00ABF33D /* appicon.png */,
 				23A69FDC2934FD2000AFA1E5 /* Preview Content */,
 				2382C9042941781F00ABF33D /* Launch Screen.storyboard */,
 			);
@@ -215,6 +220,7 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				2382C9602945F18B00ABF33D /* appicon.png in Resources */,
 				23A69FDE2934FD2000AFA1E5 /* Preview Assets.xcassets in Resources */,
 				2382C9052941781F00ABF33D /* Launch Screen.storyboard in Resources */,
 				23A69FDB2934FD2000AFA1E5 /* Assets.xcassets in Resources */,
@@ -370,7 +376,7 @@
 				DEVELOPMENT_TEAM = S9PBHPN687;
 				ENABLE_PREVIEWS = YES;
 				GENERATE_INFOPLIST_FILE = YES;
-				INFOPLIST_FILE = "";
+				INFOPLIST_FILE = mountain/Info.plist;
 				INFOPLIST_KEY_CFBundleDisplayName = "你能走什麼？";
 				INFOPLIST_KEY_UIApplicationSceneManifest_Generation = YES;
 				INFOPLIST_KEY_UIApplicationSupportsIndirectInputEvents = YES;
@@ -402,7 +408,7 @@
 				DEVELOPMENT_TEAM = S9PBHPN687;
 				ENABLE_PREVIEWS = YES;
 				GENERATE_INFOPLIST_FILE = YES;
-				INFOPLIST_FILE = "";
+				INFOPLIST_FILE = mountain/Info.plist;
 				INFOPLIST_KEY_CFBundleDisplayName = "你能走什麼？";
 				INFOPLIST_KEY_UIApplicationSceneManifest_Generation = YES;
 				INFOPLIST_KEY_UIApplicationSupportsIndirectInputEvents = YES;

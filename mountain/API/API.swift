@@ -16,7 +16,7 @@ enum Sex: String {
 
 struct API {
     static let shared = API()
-    let domain = "http://192.168.50.118:8080"
+    let domain = "https://6e83-1-161-119-16.au.ngrok.io"
     let headers: HTTPHeaders = [
         "Content-Type": "application/json"
     ]
@@ -62,7 +62,7 @@ struct API {
 
     func postRecommandMountains(sex: Sex, age: Int, heartRate: Int, height: Int, weight: Int, completion: @escaping ([Mountain]?) -> Void) {
         
-        let url = domain + "/recommandations"
+        let url = domain + "/recommendations"
         let parameters = [
             "sex": sex.rawValue,
             "age": age,

@@ -16,6 +16,8 @@ struct PersonalInfoView: View {
     @State private var heartRate = ""
     @State private var height = ""
     @State private var weight = ""
+    @State private var hasSport = false
+    @State private var noSport = true
     
     let screenWidth = UIScreen.main.bounds.width
     
@@ -31,7 +33,7 @@ struct PersonalInfoView: View {
             Text("請輸入您的資料")
                 .font(.custom("PingFangTC-Medium", size: 24))
                 .foregroundColor(.darkGray)
-                .padding(.top, 100)
+                .padding(.top, -20)
                 .padding(.horizontal)
                 .padding(.bottom, 5)
             Text("讓我們幫您找出適合的步道吧！")
@@ -61,7 +63,7 @@ struct PersonalInfoView: View {
                     }
                 Spacer()
             }
-            .padding(.top, 40)
+            .padding(.top, 20)
             .frame(maxWidth: screenWidth * 0.8)
             
             // 年齡
@@ -131,30 +133,77 @@ struct PersonalInfoView: View {
             }
             .padding(.top)
             .frame(maxWidth: screenWidth * 0.8)
-            Spacer()
-            Button {
             
-                UIApplication.shared.endEditing()
-//                viewModel.getRecommandMountains(sex: isMale ? .M: .F, age: Int(age) ?? 0, heartRate: Int(heartRate) ?? 0, height: Int(height) ?? 0, weight: Int(weight) ?? 0)
-                viewModel.getRecommandMountains(sex: isMale ? .M: .F, age: 20, heartRate: 20, height: 20, weight: 20)
-
-            } label: {
+            // 運動習慣
+            HStack {
+                Image("icons-running-50")
+                    .resizable()
+                    .scaledToFit()
+                    .frame(width: 30)
+                Text("是否有運動習慣：")
+                    .font(.custom("PingFangTC-Regular", size: 18))
+                    .foregroundColor(.darkGray)
                 
-                Text("確定")
-                    .frame(width: 70, height: 25)
-                    .font(.headline)
-                    .padding(10)
-                    .background(Color.darkGray)
-                    .cornerRadius(.infinity)
-                    .foregroundColor(.white)
-                    .padding(5)
+                Toggle("Yes", isOn: $hasSport)
+                    .toggleStyle(.button)
+                    .tint(.mint)
+                    .onChange(of: hasSport) { value in
+                        noSport = !value
+                    }
+                Toggle("No", isOn: $noSport)
+                    .toggleStyle(.button)
+                    .tint(.mint)
+                    .onChange(of: noSport) { value in
+                        hasSport = !value
+                    }
+                Spacer()
             }
-            Spacer()
+            .padding(.top)
+            .frame(maxWidth: screenWidth * 0.8)
+            
+            HStack {
+                Button {
+                    
+                    UIApplication.shared.endEditing()
+                    viewModel.isRandomSuccess = true
+                } label: {
+                    
+                    Text("隨機推薦")
+                        .frame(width: screenWidth / 3, height: 25)
+                        .font(.headline)
+                        .padding(10)
+                        .background(Color.darkGray)
+                        .cornerRadius(.infinity)
+                        .foregroundColor(.white)
+                        .padding(5)
+                }
+                
+                Button {
+                    
+                    UIApplication.shared.endEditing()
+                    //                viewModel.getRecommandMountains(sex: isMale ? .M: .F, age: Int(age) ?? 0, heartRate: Int(heartRate) ?? 0, height: Int(height) ?? 0, weight: Int(weight) ?? 0)
+                    viewModel.getRecommandMountains(sex: isMale ? .M: .F, age: 20, heartRate: 20, height: 20, weight: 20)
+                } label: {
+                    
+                    Text("找步道")
+                        .frame(width: screenWidth / 3, height: 25)
+                        .font(.headline)
+                        .padding(10)
+                        .background(Color.darkGray)
+                        .cornerRadius(.infinity)
+                        .foregroundColor(.white)
+                        .padding(5)
+                }
+            }
+            .padding(.top, 60)
         }
         .navigationTitle("基本資料")
-        .navigationDestination(isPresented: $viewModel.isSuccess) {
+        .navigationDestination(isPresented: $viewModel.isRecommendSuccess) {
             RecommandView(mountainList: $viewModel.mountainList)
-        } 
+        }
+        .navigationDestination(isPresented: $viewModel.isRandomSuccess) {
+            RandomView()
+        }
     }
 }
 

@@ -9,7 +9,7 @@ import SwiftUI
 
 struct DetailView: View {
     @StateObject var viewModel = DetailViewModel()
-    var mountain: Mountain = Mountain(步道名稱: "", 所在地區: "", 里程: "", 海拔高度: 0, 高度落差: "", 所需時間: "", 難易度: 0, 申請入山: false, 路面狀況: "", 路線網址: "", 圖片網址: "")
+    var mountain: Mountain = Mountain(步道名稱: "", 所在地區: "", 里程: "", 海拔高度: 0, 高度落差: "", 所需時間: "", 難易度: 0, 申請入山: false, 路面狀況: "", 經緯度: [], 路線網址: "", 圖片網址: "")
     let screenWidth = UIScreen.main.bounds.width
     var gridItemLayout = [GridItem(.fixed(80)), GridItem(.fixed(80)), GridItem(.fixed(80)), GridItem(.fixed(80))]
     
@@ -133,25 +133,6 @@ struct DetailView: View {
                             .foregroundColor(.darkGray)
                             .padding(.leading)
                             .padding(.top, 10)
-                        /*
-                         ForEach(Array(viewModel.dangerFactory(danger: danger).enumerated()), id: \.offset) { index, item in
-                         
-                         Button {
-                         // ..
-                         } label: {
-                         Text(item)
-                         .font(.subheadline)
-                         .foregroundColor(.darkGray)
-                         //                                .padding(.top, 10)
-                         Image("icons-warning-96")
-                         .resizable()
-                         .frame(width: 20, height: 20)
-                         .padding(.leading, -5)
-                         }
-                         .padding(3)
-                         .background(.yellow)
-                         .cornerRadius(20)
-                         }*/
                         Spacer()
                     }
                     HStack {
@@ -190,21 +171,31 @@ struct DetailView: View {
                             Text("路線參考")
                                 .frame(height: 25)
                                 .font(.headline)
-                                .padding(10)
+                                .padding(.horizontal, 15)
+                                .padding(.vertical, 10)
                                 .background(Color.darkGray)
-                                .cornerRadius(15)
+                                .cornerRadius(.infinity)
                                 .foregroundColor(.white)
                         }
                     }
-                    Link(destination: URL(string: "https://www.google.com.tw/maps/@24.2201031,120.9558744,10z?hl=zh-TW")!) {
+                    Button {
+                        
+                            
+                        let lat = mountain.經緯度.first
+                        let lng = mountain.經緯度.last
+                        viewModel.openGoogleMap(lat: lat ?? "", lng: lng ?? "")
+                    } label: {
+                        
                         Text("馬上出發")
                             .frame(height: 25) // width: screenWidth / 3.5,
                             .font(.headline)
-                            .padding(10)
+                            .padding(.horizontal, 15)
+                            .padding(.vertical, 10)
                             .background(Color.darkGray)
-                            .cornerRadius(15)
+                            .cornerRadius(.infinity)
                             .foregroundColor(.white)
                     }
+
                     Spacer()
                 }
                 .padding(.leading, 15)
