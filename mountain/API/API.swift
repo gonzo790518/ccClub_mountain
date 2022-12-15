@@ -16,7 +16,7 @@ enum Sex: String {
 
 struct API {
     static let shared = API()
-    let domain = "https://6e83-1-161-119-16.au.ngrok.io"
+    let domain = "http://192.168.50.118:8080"
     let headers: HTTPHeaders = [
         "Content-Type": "application/json"
     ]
@@ -70,6 +70,7 @@ struct API {
             "height": height,
             "weight": weight
         ] as [String : Any]
+        print("URL: \(url)")
         
         AF.request(url, method: .post, parameters: parameters, encoding: JSONEncoding.default, headers: headers).responseDecodable(of: [Mountain].self) { response in
             

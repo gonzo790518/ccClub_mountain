@@ -9,20 +9,49 @@ import SwiftUI
 
 struct DetailView: View {
     @StateObject var viewModel = DetailViewModel()
-    var mountain: Mountain = Mountain(步道名稱: "", 所在地區: "", 里程: "", 海拔高度: 0, 高度落差: "", 所需時間: "", 難易度: 0, 申請入山: false, 路面狀況: "", 經緯度: [], 路線網址: "", 圖片網址: "")
+    var mountain: Mountain = Mountain(步道名稱: "", 所在地區: "", 單趟里程: 0.0, 海拔高度: 0, 高度落差: "", 所需時間: "", 難易度: 0, 申請入山: false, 路面狀況: "", 經緯度: [], 路線網址: "", 圖片: [], 位置: "", 體能等級: "")
     let screenWidth = UIScreen.main.bounds.width
     var gridItemLayout = [GridItem(.fixed(80)), GridItem(.fixed(80)), GridItem(.fixed(80)), GridItem(.fixed(80))]
-    
+    @State private var imageHidden = true
+
     var body: some View {
         
         VStack {
-            
-            AsyncImage(url: URL(string: mountain.圖片網址)) { image in
-                image.resizable()
-            } placeholder: {
-                ProgressView()
+            TabView {
+                ForEach(Array(mountain.圖片.enumerated()), id: \.element) { index, url in
+                    ZStack {
+                        AsyncImage(url: URL(string: url)) { image in
+                            
+                            image.resizable()
+                                .aspectRatio(contentMode: .fit)
+                        } placeholder: {
+                            ProgressView()
+                        }
+                        
+                        VStack {
+                            Spacer()
+                            HStack {
+                                Spacer()
+                                ZStack {
+                                    RoundedRectangle(cornerRadius: 15)
+                                        .fill(Color(UIColor.lightGray))
+                                        .frame(width: 50, height: 25)
+                                        .opacity(0.6)
+                                    
+                                    Text("\(index + 1) / \(mountain.圖片.count)")
+                                        .font(.subheadline)
+                                        .foregroundColor(Color.systemBackground)
+                                        .padding()
+                                }
+                            }
+                        }
+                    }
+                }
             }
-            .frame(minHeight: screenWidth / 1.5, maxHeight: screenWidth / 1.5)
+            .frame(width: screenWidth, height: screenWidth / 1.5)
+            .tabViewStyle(.page(indexDisplayMode: .never))
+            .opacity(imageHidden ? 0 : 1)
+            
             
             ScrollView {
                 HStack(alignment: .bottom) {
@@ -46,7 +75,7 @@ struct DetailView: View {
                         .foregroundColor(.darkGray)
                         .padding(.horizontal)
                         .padding(.top, 10)
-                    Text(String(mountain.里程))
+                    Text(String(mountain.單趟里程))
                         .font(.subheadline)
                         .foregroundColor(.darkGray)
                         .padding(.top, 10)
@@ -200,6 +229,15 @@ struct DetailView: View {
                 }
                 .padding(.leading, 15)
                 .padding(.top, 15)
+            }
+        }
+        .onAppear {
+            // Let image display delay because ui issue.
+            DispatchQueue.main.asyncAfter(deadline: .now() + 0.4) {
+                
+                withAnimation(.easeInOut(duration: 0.1)) {
+                    self.imageHidden = false
+                }
             }
         }
     }
