@@ -60,7 +60,7 @@ struct API {
         }
     }
 
-    func postRecommandMountains(sex: Sex, age: Int, heartRate: Int, height: Int, weight: Int, completion: @escaping ([Mountain]?) -> Void) {
+    func postRecommandMountains(sex: Sex, age: Int, heartRate: Int, height: Int, weight: Int, sportHobit: Bool, completion: @escaping ([Mountain]?) -> Void) {
         
         let url = domain + "/recommendations"
         let parameters = [
@@ -68,7 +68,8 @@ struct API {
             "age": age,
             "heartRate": heartRate,
             "height": height,
-            "weight": weight
+            "weight": weight,
+            "sport": sportHobit
         ] as [String : Any]
         print("URL: \(url)")
         

@@ -13,7 +13,7 @@ class PersonalInfoViewModel: ObservableObject {
     @Published var isRandomSuccess = false
     @Published var isRecommendSuccess = false
     
-    func getRecommandMountains(sex: Sex, age: Int, heartRate: Int, height: Int, weight: Int) {
+    func getRecommandMountains(sex: Sex, age: Int, heartRate: Int, height: Int, weight: Int, sport: Bool) {
         
         if age == 0 || height == 0 || weight == 0 {
             // Alert 請輸入您的資料
@@ -21,7 +21,7 @@ class PersonalInfoViewModel: ObservableObject {
         }
         
         ProgressHUD.show()
-        API.shared.postRecommandMountains(sex: sex, age: age, heartRate: heartRate, height: height, weight: weight, completion: { result in
+        API.shared.postRecommandMountains(sex: sex, age: age, heartRate: heartRate, height: height, weight: weight, sportHobit: sport, completion: { result in
             
             if result != nil {
                 

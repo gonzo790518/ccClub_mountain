@@ -182,7 +182,7 @@ struct PersonalInfoView: View {
                     
                     UIApplication.shared.endEditing()
                     //                viewModel.getRecommandMountains(sex: isMale ? .M: .F, age: Int(age) ?? 0, heartRate: Int(heartRate) ?? 0, height: Int(height) ?? 0, weight: Int(weight) ?? 0)
-                    viewModel.getRecommandMountains(sex: isMale ? .M: .F, age: 20, heartRate: 20, height: 20, weight: 20)
+                    viewModel.getRecommandMountains(sex: isMale ? .M: .F, age: 20, heartRate: 20, height: 20, weight: 20, sport: hasSport)
                 } label: {
                     
                     Text("找步道")

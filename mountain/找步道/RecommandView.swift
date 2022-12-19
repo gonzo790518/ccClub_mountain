@@ -10,7 +10,7 @@ import SwiftUI
 struct RecommandView: View {
     @Binding public var mountainList: [Mountain]
     @State private var isGoingDetail = false
-    @State private var selectedItem: Mountain = Mountain(步道名稱: "", 所在地區: "", 單趟里程: 0.0, 海拔高度: 0, 高度落差: "", 所需時間: "", 難易度: 0, 申請入山: false, 路面狀況: "", 經緯度: [], 路線網址: "", 圖片: [], 位置: "", 體能等級: "")
+    @State private var selectedItem: Mountain = Mountain(步道名稱: "", 所在地區: "", 單趟里程: 0.0, 海拔高度: 0, 高度落差: "", 往返所需時間: "", 難易度: 0, 申請入山: false, 路面狀況: "", 經緯度: [], 路線網址: "", 圖片: [], 位置: "", 體能等級: "")
     @State private var isPopoverPresented = false
     @State var popoverSize = CGSize(width: UIScreen.main.bounds.width/3, height: UIScreen.main.bounds.width)
     @State private var cityIndex = 0
@@ -107,12 +107,12 @@ struct RecommandView: View {
                                     Spacer()
                                 }.padding(.bottom, 1)
                                 HStack {
-                                    Text(item.所需時間)
+                                    Text("往返" + item.往返所需時間)
                                         .fontWeight(.light)
                                         .font(.subheadline)
                                         .foregroundColor(.darkGray)
                                     Spacer()
-                                    Text("\(item.單趟里程)")
+                                    Text("單趟" + String(item.單趟里程) + "公里")
                                         .fontWeight(.light)
                                         .font(.caption)
                                         .foregroundColor(.darkGray)
@@ -142,7 +142,7 @@ struct RecommandView: View {
                             isPopoverPresented.toggle()
                         } label: {
                             
-                            Image("icons-filter-64")
+                            Image("icons-region-80")
                                 .resizable()
                                 .frame(width: 28, height: 28)
                         }
@@ -161,6 +161,8 @@ struct RecommandView: View {
                                         print(citysNumDict[index] ?? "NaN")
                                         cityIndex = index
                                         isPopoverPresented = false
+                                        
+                                        // TODO: 篩選後移致最上面
                                     }
                             }
                             .listRowSeparator(.hidden)

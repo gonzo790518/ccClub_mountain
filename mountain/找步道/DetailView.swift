@@ -9,7 +9,7 @@ import SwiftUI
 
 struct DetailView: View {
     @StateObject var viewModel = DetailViewModel()
-    var mountain: Mountain = Mountain(步道名稱: "", 所在地區: "", 單趟里程: 0.0, 海拔高度: 0, 高度落差: "", 所需時間: "", 難易度: 0, 申請入山: false, 路面狀況: "", 經緯度: [], 路線網址: "", 圖片: [], 位置: "", 體能等級: "")
+    var mountain: Mountain = Mountain(步道名稱: "", 所在地區: "", 單趟里程: 0.0, 海拔高度: 0, 高度落差: "", 往返所需時間: "", 難易度: 0, 申請入山: false, 路面狀況: "", 經緯度: [], 路線網址: "", 圖片: [], 位置: "", 體能等級: "")
     let screenWidth = UIScreen.main.bounds.width
     var gridItemLayout = [GridItem(.fixed(80)), GridItem(.fixed(80)), GridItem(.fixed(80)), GridItem(.fixed(80))]
     @State private var imageHidden = true
@@ -43,7 +43,7 @@ struct DetailView: View {
                                         .foregroundColor(Color.systemBackground)
                                         .padding()
                                 }
-                            }
+                            }.padding(.trailing, 10)
                         }
                     }
                 }
@@ -70,12 +70,12 @@ struct DetailView: View {
                 }.padding(.trailing, 20)
                 
                 HStack {
-                    Text("里程：")
+                    Text("單趟里程：")
                         .font(.headline)
                         .foregroundColor(.darkGray)
                         .padding(.horizontal)
                         .padding(.top, 10)
-                    Text(String(mountain.單趟里程))
+                    Text(String(mountain.單趟里程) + "公里")
                         .font(.subheadline)
                         .foregroundColor(.darkGray)
                         .padding(.top, 10)
@@ -112,12 +112,12 @@ struct DetailView: View {
                 }
                 
                 HStack {
-                    Text("所需時間：")
+                    Text("往返時間：")
                         .font(.headline)
                         .foregroundColor(.darkGray)
                         .padding(.horizontal)
                         .padding(.top, 10)
-                    Text(String(mountain.所需時間))
+                    Text(String(mountain.往返所需時間))
                         .font(.subheadline)
                         .foregroundColor(.darkGray)
                         .padding(.top, 10)
@@ -195,7 +195,7 @@ struct DetailView: View {
                 // 路線網址
                 
                 HStack(alignment: .center) {
-                    if let url = URL(string: mountain.路線網址) {
+                    if let url = URL(string: mountain.路線網址 ?? "") {
                         Link(destination: url) {
                             Text("路線參考")
                                 .frame(height: 25)
@@ -210,8 +210,8 @@ struct DetailView: View {
                     Button {
                         
                             
-                        let lat = mountain.經緯度.first
-                        let lng = mountain.經緯度.last
+                        let lat = mountain.經緯度?.first
+                        let lng = mountain.經緯度?.last
                         viewModel.openGoogleMap(lat: lat ?? "", lng: lng ?? "")
                     } label: {
                         
