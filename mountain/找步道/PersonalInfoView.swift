@@ -26,6 +26,7 @@ struct PersonalInfoView: View {
             .foregroundColor: UIColor.darkGray,
             .font : UIFont(name: "Georgia-Bold", size: 20)!
         ]
+        UINavigationBar.appearance().backgroundColor = .white
     }
     
     var body: some View {
@@ -162,6 +163,7 @@ struct PersonalInfoView: View {
             .frame(maxWidth: screenWidth * 0.8)
             
             HStack {
+                /*
                 Button {
                     
                     UIApplication.shared.endEditing()
@@ -176,23 +178,26 @@ struct PersonalInfoView: View {
                         .cornerRadius(.infinity)
                         .foregroundColor(.white)
                         .padding(5)
-                }
+                }*/
                 
                 Button {
                     
                     UIApplication.shared.endEditing()
-                    //                viewModel.getRecommandMountains(sex: isMale ? .M: .F, age: Int(age) ?? 0, heartRate: Int(heartRate) ?? 0, height: Int(height) ?? 0, weight: Int(weight) ?? 0)
-                    viewModel.getRecommandMountains(sex: isMale ? .M: .F, age: 20, heartRate: 20, height: 20, weight: 20, sport: hasSport)
+                    viewModel.isRecommendSuccess = false
+                    viewModel.showNoDataAlert = false
+                    viewModel.getRecommandMountains(sex: isMale ? .M: .F, age: Int(age) ?? 0, heartRate: Int(heartRate) ?? 0, height: Int(height) ?? 0, weight: Int(weight) ?? 0, sport: hasSport)
+//                    viewModel.getRecommandMountains(sex: isMale ? .M: .F, age: 20, heartRate: 20, height: 20, weight: 20, sport: hasSport)
                 } label: {
                     
                     Text("找步道")
-                        .frame(width: screenWidth / 3, height: 25)
+                        .frame(width: screenWidth * 0.6, height: 25)
                         .font(.headline)
                         .padding(10)
                         .background(Color.darkGray)
                         .cornerRadius(.infinity)
                         .foregroundColor(.white)
                         .padding(5)
+                        .padding(.top, -30)
                 }
             }
             .padding(.top, 60)
@@ -203,6 +208,11 @@ struct PersonalInfoView: View {
         }
         .navigationDestination(isPresented: $viewModel.isRandomSuccess) {
             RandomView()
+        }
+        .alert(isPresented: $viewModel.showNoDataAlert) {
+            Alert(
+                title: Text("Oh..很抱歉"), message: Text("目前沒有適合你的步道，多去公園走走提升體力吧！")
+            )
         }
     }
 }

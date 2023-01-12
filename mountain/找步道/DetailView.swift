@@ -207,22 +207,23 @@ struct DetailView: View {
                                 .foregroundColor(.white)
                         }
                     }
-                    Button {
+                    
+                    if let lat = mountain.經緯度?.first, let lng = mountain.經緯度?.last {
                         
+                        Button {
                             
-                        let lat = mountain.經緯度?.first
-                        let lng = mountain.經緯度?.last
-                        viewModel.openGoogleMap(lat: lat ?? "", lng: lng ?? "")
-                    } label: {
-                        
-                        Text("馬上出發")
-                            .frame(height: 25) // width: screenWidth / 3.5,
-                            .font(.headline)
-                            .padding(.horizontal, 15)
-                            .padding(.vertical, 10)
-                            .background(Color.darkGray)
-                            .cornerRadius(.infinity)
-                            .foregroundColor(.white)
+                            viewModel.openGoogleMap(lat: lat, lng: lng)
+                        } label: {
+                            
+                            Text("馬上出發")
+                                .frame(height: 25) // width: screenWidth / 3.5,
+                                .font(.headline)
+                                .padding(.horizontal, 15)
+                                .padding(.vertical, 10)
+                                .background(Color.darkGray)
+                                .cornerRadius(.infinity)
+                                .foregroundColor(.white)
+                        }
                     }
 
                     Spacer()

@@ -12,6 +12,7 @@ class PersonalInfoViewModel: ObservableObject {
     @Published var mountainList = [Mountain]()
     @Published var isRandomSuccess = false
     @Published var isRecommendSuccess = false
+    @Published var showNoDataAlert: Bool = false
     
     func getRecommandMountains(sex: Sex, age: Int, heartRate: Int, height: Int, weight: Int, sport: Bool) {
         
@@ -23,10 +24,13 @@ class PersonalInfoViewModel: ObservableObject {
         ProgressHUD.show()
         API.shared.postRecommandMountains(sex: sex, age: age, heartRate: heartRate, height: height, weight: weight, sportHobit: sport, completion: { result in
             
-            if result != nil {
+            if !(result?.isEmpty ?? false) {
                 
                 self.mountainList = result ?? []
                 self.isRecommendSuccess = true
+            } else {
+                
+                self.showNoDataAlert = true
             }
         })
     }

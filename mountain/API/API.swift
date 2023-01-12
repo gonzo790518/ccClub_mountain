@@ -16,7 +16,7 @@ enum Sex: String {
 
 struct API {
     static let shared = API()
-    let domain = "http://192.168.50.118:8080"
+    let domain = "https://f9c4-1-161-94-248.au.ngrok.io"
     let headers: HTTPHeaders = [
         "Content-Type": "application/json"
     ]
